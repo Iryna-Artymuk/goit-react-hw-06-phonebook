@@ -6,7 +6,7 @@ import { Filter } from '../Filter/Filter';
 export const App = () => {
   return (
     <Layout>
-      {/* <Form /> */}
+      <Form />
       <Filter />
       <ContactsList />
     </Layout>
