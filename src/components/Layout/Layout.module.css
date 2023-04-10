@@ -1,9 +1,12 @@
 .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
-  min-width: 90vw;
-  min-height: 90vh;
+  min-width: 100vw;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 16px;
-  background-color: antiquewhite;
+  background: #e6e6e6;
 }

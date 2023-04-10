@@ -11,6 +11,7 @@ import { toggleModal } from '../../redux/modalSlice';
 import { sortAtoZ } from '../../redux/contactsListSlice';
 import { sortZtoA } from '../../redux/contactsListSlice';
 
+import css from './App.module.css';
 export const App = () => {
   const modalActive = useSelector(getModalStatus);
   const dispatch = useDispatch();
@@ -25,22 +26,26 @@ export const App = () => {
   };
   return (
     <Layout>
-      <button onClick={modalAction}> Add contact </button>
-      <label htmlFor="sortByName">sort by name</label>
+      <div className={css.contentWrapper}>
+        <h2 className={css.title}>Contacts</h2>
+        <Filter />
+        <label htmlFor="sortByName">sort by name</label>
 
-      <select name="sortByName" onChange={handelSelect} id="sortByName">
-        <option></option>
-        <option value="AtoZ">A to Z</option>
-        <option value="ZtoA">Z to A</option>
-      </select>
-      {modalActive && (
-        <Modal togglModal={modalAction}>
-          <ContactForm />
-        </Modal>
-      )}
+        <select name="sortByName" onChange={handelSelect} id="sortByName">
+          <option></option>
+          <option value="AtoZ">A to Z</option>
+          <option value="ZtoA">Z to A</option>
+        </select>
+        <button onClick={modalAction}> Add contact </button>
 
-      <Filter />
-      <ContactsList />
+        {modalActive && (
+          <Modal togglModal={modalAction}>
+            <ContactForm />
+          </Modal>
+        )}
+
+        <ContactsList />
+      </div>
     </Layout>
   );
 };

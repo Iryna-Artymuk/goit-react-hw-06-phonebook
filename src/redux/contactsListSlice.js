@@ -30,7 +30,7 @@ const contactsListSlice = createSlice({
     // очікується що в action прийде {} контакту який треба додати
     addContact: {
       reducer(state, action) {
-        console.log(action.payload);
+        // console.log(action.payload);
         const existContact = state.find(
           contact => contact.name === action.payload.name
         );

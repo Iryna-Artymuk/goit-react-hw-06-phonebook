@@ -7,6 +7,8 @@ import { getModalStatus } from '../../redux/selectors';
 import { toggleModal } from '../../redux/modalSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+
+import css from './Form.module.css';
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const modalActive = useSelector(getModalStatus);
@@ -41,18 +43,30 @@ export const ContactForm = () => {
       }}
       validationSchema={ContactValidationSchema}
     >
-      <Form>
+      <Form className={css.form}>
         <label>
           Name
-          <Field type="text" name="name" placeholder="Enter name" />
+          <Field
+            className={css.input}
+            type="text"
+            name="name"
+            placeholder="Enter name"
+          />
         </label>
         <ErrorMessage name="name" component="div" />
         <label htmlFor="phone_number">
           Phone number
-          <Field type="tel" name="phone_number" />
+          <Field
+            type="tel"
+            name="phone_number"
+            placeholder="Enter phone number"
+          />
         </label>
         <ErrorMessage name="phone_number" component="div" />
-        <button type="submit"> Add contact </button>
+        <button className={css.button} type="submit">
+          {' '}
+          Add contact{' '}
+        </button>
       </Form>
     </Formik>
   );

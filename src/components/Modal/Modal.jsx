@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
-import { StyledModal, StyledBackdrop } from './ModalStyled';
-import { AiOutlineClose } from 'react-icons/ai';
 
+import { AiOutlineClose } from 'react-icons/ai';
+import css from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
 class Modal extends Component {
   componentDidMount() {
@@ -26,34 +26,20 @@ class Modal extends Component {
 
   render() {
     return createPortal(
-      <StyledBackdrop onClick={this.closeOnBackdropClick}>
-        <StyledModal>
-          <div
-            style={{
-              width: '70%',
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              margin: 'auto',
-            }}
-          >
-            {this.props.children}
-          </div>
+      <div className={css.overlay} onClick={this.closeOnBackdropClick}>
+        <div className={css.modal}>
+          {this.props.children}
 
           <button
+            className={css.modalButton}
             onClick={this.props.togglModal}
             aria-label="close"
             type="modal"
           >
             <AiOutlineClose />
           </button>
-        </StyledModal>
-      </StyledBackdrop>,
+        </div>
+      </div>,
       modalRoot
     );
   }
