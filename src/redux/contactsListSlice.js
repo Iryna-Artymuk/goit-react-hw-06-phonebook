@@ -42,8 +42,9 @@ const contactsListSlice = createSlice({
       },
     },
     // очікується що в action прийде id контакту який треба видалити
-    deleteContact: (state, action) =>
-      state.filter(contact => contact.id !== action.payload),
+    deleteContact(state, action) {
+      return state.filter(contact => contact.id !== action.payload);
+    },
   },
 });
 
