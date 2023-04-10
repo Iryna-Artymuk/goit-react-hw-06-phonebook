@@ -31,7 +31,15 @@ const contactsListSlice = createSlice({
     addContact: {
       reducer(state, action) {
         console.log(action.payload);
-        state.push(action.payload);
+        const existContact = state.find(
+          contact => contact.name === action.payload.name
+        );
+        console.log(existContact);
+        if (!existContact) {
+          state.push(action.payload);
+        } else {
+          return alert(`contactact ${existContact.name} already in your  list`);
+        }
       },
       prepare(contactData) {
         return {
@@ -46,8 +54,26 @@ const contactsListSlice = createSlice({
     deleteContact(state, action) {
       return state.filter(contact => contact.id !== action.payload);
     },
+    sortAtoZ(state, action) {
+      // const sortState = [...state].sort(function (task1, task2) {
+      //   return task1.text.localeCompare(task2.text);
+      // });
+      console.log(action);
+      state.sort(function (contact1, contact2) {
+        return contact1.name.localeCompare(contact2.name);
+      });
+    },
+    sortZtoA(state, action) {
+      // const sortState = [...state].sort(function (task1, task2) {
+      //   return task1.text.localeCompare(task2.text);
+      // });
+      state.sort(function (contact1, contact2) {
+        return contact2.name.localeCompare(contact1.name);
+      });
+    },
   },
 });
 
-export const { addContact, deleteContact } = contactsListSlice.actions;
+export const { addContact, deleteContact, sortAtoZ, sortZtoA } =
+  contactsListSlice.actions;
 export const contactsReducer = contactsListSlice.reducer;

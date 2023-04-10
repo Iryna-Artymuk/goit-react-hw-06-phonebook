@@ -5,8 +5,8 @@ const modalSlice = createSlice({
   initialState: false,
   reducers: {
     toggleModal(state, action) {
-      console.log(state);
-      console.log(action);
+      //   console.log(state);
+      //   console.log(action);
       return (state = action.payload);
     },
   },
