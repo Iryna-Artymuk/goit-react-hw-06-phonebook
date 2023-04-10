@@ -1,7 +1,15 @@
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Field, ErrorMessage, Form } from 'formik';
 
-export const Form = () => {
+import * as Yup from 'yup';
+import { addContact } from '../../redux/contactsListSlice';
+import { getModalStatus } from '../../redux/selectors';
+
+import { toggleModal } from '../../redux/modalSlice';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+  const modalActive = useSelector(getModalStatus);
   const phoneRegExp =
     /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
@@ -13,6 +21,11 @@ export const Form = () => {
       .matches(phoneRegExp, 'Phone number is not valid'),
   });
 
+  const handleSubmit = value => {
+    console.log(value);
+    dispatch(addContact(value));
+    dispatch(toggleModal(!modalActive));
+  };
   return (
     <Formik
       initialValues={{
@@ -22,18 +35,13 @@ export const Form = () => {
       // по сабміту форми буде відправлятись action
       // в payload якого буде новий обєкт контакту
       // contactsReducer буде обробляти цей action і додавати новий контакт в список сонтаків
-      onSubmit={(value, actions) => {
-        console.log(value);
-        // const newContact = {
-
-        //   ...value,
-        // };
-
-        actions.resetForm();
+      onSubmit={(value, action) => {
+        handleSubmit(value);
+        action.resetForm();
       }}
       validationSchema={ContactValidationSchema}
     >
-      <form>
+      <Form>
         <label>
           Name
           <Field type="text" name="name" placeholder="Enter name" />
@@ -45,7 +53,7 @@ export const Form = () => {
         </label>
         <ErrorMessage name="phone_number" component="div" />
         <button type="submit"> Add contact </button>
-      </form>
+      </Form>
     </Formik>
   );
 };

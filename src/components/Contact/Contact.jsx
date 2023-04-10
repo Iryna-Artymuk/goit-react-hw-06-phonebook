@@ -9,7 +9,7 @@ export const Contact = ({ data }) => {
     dispatch(deleteContact(data.id));
   };
   return (
-    <li key={data.id}>
+    <li>
       <div>
         <p>{data.name}</p>
         <p>{data.phone_number}</p>
