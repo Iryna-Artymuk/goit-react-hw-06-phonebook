@@ -3,6 +3,7 @@
   width: 100%;
 
   background: #e6e6e6;
+  color: #545454;
   border-radius: 8px;
   box-shadow: 0 0 40px -10px pink;
 
@@ -12,6 +13,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+
+  font-size: 18px;
 }
 .title {
   margin: 10px 0;

@@ -31,3 +31,8 @@
 .input:focus {
   border-bottom: 2px solid #78788c;
 }
+
+.error {
+  font-size: 12px;
+  color: red;
+}

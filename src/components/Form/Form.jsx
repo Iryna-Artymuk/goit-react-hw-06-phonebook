@@ -55,7 +55,7 @@ export const ContactForm = () => {
             placeholder="Enter name"
           />
         </label>
-        <ErrorMessage name="name" component="div" />
+        <ErrorMessage className={css.error} name="name" component="div" />
         <label htmlFor="phone_number">
           Phone number
           <Field
@@ -65,7 +65,11 @@ export const ContactForm = () => {
             placeholder="Enter phone number"
           />
         </label>
-        <ErrorMessage name="phone_number" component="div" />
+        <ErrorMessage
+          className={css.error}
+          name="phone_number"
+          component="div"
+        />
         <Button type="submit">Add contact </Button>
       </Form>
     </Formik>

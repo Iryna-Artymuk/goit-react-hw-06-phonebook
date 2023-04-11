@@ -43,13 +43,28 @@ export const App = () => {
         <Filter activeFilter={activeFilter} />
         <Sort activeSort={activeSort} />
 
-        <IconButton onClick={toggleSort} type="button" sortButton>
+        <IconButton
+          onClick={toggleSort}
+          type="button"
+          aria-label=" sort contacts by name"
+          sortButton
+        >
           <BsSortAlphaDown />
         </IconButton>
-        <IconButton onClick={toggleFilter} type="button" searchButton>
+        <IconButton
+          onClick={toggleFilter}
+          type="button"
+          aria-label=" find contact by name"
+          searchButton
+        >
           <MdSearch />
         </IconButton>
-        <IconButton onClick={modalAction} type="button" addContactButton>
+        <IconButton
+          onClick={modalAction}
+          type="button"
+          aria-label=" add contact"
+          addContactButton
+        >
           <MdPersonAdd />
         </IconButton>
 
