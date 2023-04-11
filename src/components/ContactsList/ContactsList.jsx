@@ -8,7 +8,7 @@ export const ContactsList = data => {
   // console.log(data);
   const contactsList = useSelector(getStoreContacts);
   const filter = useSelector(getStoreFilter);
-  console.log(filter);
+  // console.log(filter);
 
   const filteredContacts = contactsList.filter(contact =>
     contact.name.toLowerCase().includes(filter)

@@ -4,7 +4,7 @@ export const getStoreContacts = state => {
 };
 
 export const getStoreFilter = state => {
-  console.log(state.filter.searchValue);
+  // console.log(state.filter.searchValue);
   return state.filter.searchValue;
 };
 
