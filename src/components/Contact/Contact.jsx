@@ -1,4 +1,5 @@
 import { MdClose } from 'react-icons/md';
+import IconButton from '../Button/IconButton';
 import { deleteContact } from '../../redux/contactsListSlice';
 import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
@@ -17,9 +18,9 @@ export const Contact = ({ data }) => {
       <div className={css.contactWrapper}>
         <p>{data.name}</p>
         <p>{data.phone_number}</p>
-        <button onClick={handelClick}>
+        <IconButton onClick={handelClick}>
           <MdClose size={24} />
-        </button>
+        </IconButton>
       </div>
     </li>
   );

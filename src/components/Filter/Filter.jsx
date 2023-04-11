@@ -5,7 +5,11 @@ import { setfilter } from '../../redux/filterSlice';
 // фільтер бере своє значення з store і на події onChange відправляє action
 // який обробляє filterReducer і перезаписує
 // значення фільтру в store
-export const Filter = () => {
+
+import css from './Filter.module.css';
+import clsx from 'clsx';
+let active = false;
+export const Filter = ({ activeFilter }) => {
   const filterValue = useSelector(getStoreFilter);
   const dispatch = useDispatch();
   const handelFilterChange = filterValue => {
@@ -16,6 +20,9 @@ export const Filter = () => {
 
   return (
     <input
+      className={clsx(css.filter, {
+        [css.activeFilter]: activeFilter,
+      })}
       type="text"
       value={filterValue}
       placeholder="find contact"

@@ -16,7 +16,7 @@
   gap: 15px;
 }
 
-input {
+.input {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -28,6 +28,6 @@ input {
   transition: all 0.3s;
   border-bottom: 2px solid #bebed2;
 }
-input:focus {
+.input:focus {
   border-bottom: 2px solid #78788c;
 }

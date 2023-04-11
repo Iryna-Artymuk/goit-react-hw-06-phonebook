@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+/* @import-normalize; bring in normalize.css styles */
 
 * {
   padding: 0;
@@ -89,7 +89,7 @@ img {
 }
 
 button {
-  padding: 8px 12px;
+  /* padding: 8px 12px; */
   /* margin: 8px 0 0; */
   font-family: 'Montserrat', sans-serif;
 

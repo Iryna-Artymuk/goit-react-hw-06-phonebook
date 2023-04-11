@@ -57,6 +57,7 @@ export const ContactForm = () => {
         <label htmlFor="phone_number">
           Phone number
           <Field
+            className={css.input}
             type="tel"
             name="phone_number"
             placeholder="Enter phone number"
