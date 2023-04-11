@@ -8,7 +8,7 @@ import { setfilter } from '../../redux/filterSlice';
 
 import css from './Filter.module.css';
 import clsx from 'clsx';
-let active = false;
+
 export const Filter = ({ activeFilter }) => {
   const filterValue = useSelector(getStoreFilter);
   const dispatch = useDispatch();
