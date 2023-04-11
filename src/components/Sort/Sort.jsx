@@ -45,7 +45,7 @@ export function Sort({ activeSort }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const dispatch = useDispatch();
-  console.log(selectedOption);
+  // console.log(selectedOption);
   useEffect(() => {
     selectedOption?.value === 'AtoZ'
       ? dispatch(sortAtoZ())

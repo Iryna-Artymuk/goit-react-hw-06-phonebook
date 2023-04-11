@@ -58,7 +58,7 @@ const contactsListSlice = createSlice({
       // const sortState = [...state].sort(function (task1, task2) {
       //   return task1.text.localeCompare(task2.text);
       // });
-      console.log(action);
+      // console.log(action);
       state.sort(function (contact1, contact2) {
         return contact1.name.localeCompare(contact2.name);
       });
