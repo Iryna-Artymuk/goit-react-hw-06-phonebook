@@ -58,7 +58,7 @@ export function Sort({ activeSort }) {
       })}
     >
       <Select
-        defaultValue={selectedOption}
+        // defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}
         theme={theme => ({
