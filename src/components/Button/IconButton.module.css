@@ -33,3 +33,9 @@
   top: 30px;
   right: 90px;
 }
+
+.closeModalButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

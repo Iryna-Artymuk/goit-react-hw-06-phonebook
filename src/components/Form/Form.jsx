@@ -8,6 +8,8 @@ import { toggleModal } from '../../redux/modalSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
+import { Button } from '../Button/Button';
+
 import css from './Form.module.css';
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -64,10 +66,7 @@ export const ContactForm = () => {
           />
         </label>
         <ErrorMessage name="phone_number" component="div" />
-        <button className={css.button} type="submit">
-          {' '}
-          Add contact{' '}
-        </button>
+        <Button type="submit">Add contact </Button>
       </Form>
     </Formik>
   );

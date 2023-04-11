@@ -87,17 +87,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-button {
-  /* padding: 8px 12px; */
-  /* margin: 8px 0 0; */
-  font-family: 'Montserrat', sans-serif;
-
-  background: transparent;
-  color: #5a5a6e;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-button:hover {
-  color: pink;
-}

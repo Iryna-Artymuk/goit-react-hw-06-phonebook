@@ -7,6 +7,7 @@ const IconButton = ({
   addContactButton,
   searchButton,
   sortButton,
+  closeModalButton,
   ...allyProps
 }) => {
   return (
@@ -15,6 +16,7 @@ const IconButton = ({
         [css.addContactButton]: addContactButton,
         [css.searchButton]: searchButton,
         [css.sortButton]: sortButton,
+        [css.closeModalButton]: closeModalButton,
       })}
       type={type}
       onClick={onClick}

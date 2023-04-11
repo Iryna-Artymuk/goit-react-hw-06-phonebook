@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
-
+import IconButton from '../Button/IconButton';
 import { AiOutlineClose } from 'react-icons/ai';
 import css from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
@@ -30,14 +30,14 @@ class Modal extends Component {
         <div className={css.modal}>
           {this.props.children}
 
-          <button
-            className={css.modalButton}
+          <IconButton
+            closeModalButton
             onClick={this.props.togglModal}
             aria-label="close"
-            type="modal"
+            type="button"
           >
             <AiOutlineClose />
-          </button>
+          </IconButton>
         </div>
       </div>,
       modalRoot
