@@ -17,7 +17,6 @@ export const contactsInitialState = {
     },
     { id: 'id-4', name: 'Annie Copeland', phone_number: '+380666796608' },
   ],
-
   isLoading: false,
   error: null,
   activeContactId: null,
