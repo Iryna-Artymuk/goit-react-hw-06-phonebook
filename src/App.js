@@ -13,7 +13,7 @@ import { Filter } from './components/Filter/Filter';
 import ChangeContactForm from './components/Forms/ChangeContact ';
 import { ChangeThemeButton } from './components/Theme/TheamButton';
 import Header from './components/Header/Header';
-import { useMemo } from 'react';
+// import { useMemo } from 'react';
 function App() {
   const [selectedTheme, setSelectedTheme] = useState(light);
   const [showModal, setShowModal] = useState(false);
