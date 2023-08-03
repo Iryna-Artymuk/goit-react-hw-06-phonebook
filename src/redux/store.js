@@ -1,7 +1,16 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { contactsReducer } from '../redux/contactsListSlice';
-import { filterReducer } from '../redux/filterSlice';
-import { modalReducer } from '../redux/modalSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { contactsReducer } from './contactsSlice';
+import { filterReducer } from './filterSlice';
+// console.log('filterReducer : ', filterReducer);
+
+//  функція configureStore() може автоматично створити кореневий редюсер. Для цього необхідно передати властивості reducer об'єкт тієї ж форми що в combineReducers. Для початку видалимо створення кореневого редюсера в нашому коді програми та додамо імпорти редюсерів контактів  та фільтрів
+// export const store = configureStore({
+//   reducer: {
+//     contacts: contactsReducer,
+//     filter: filterReducer,
+//   },
+// });
+
 import {
   persistStore,
   persistReducer,
@@ -12,21 +21,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import storage from 'redux-persist/lib/storage';
 
-const persistConfig = {
-  key: 'root',
-  storage: storage,
+const contactsPersistConfig = {
+  key: 'contacts',
+  storage,
+  whitelist: ['contacts'],
 };
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-  modalActive: modalReducer,
-});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    contacts: persistReducer(contactsPersistConfig, contactsReducer),
+    filter: filterReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

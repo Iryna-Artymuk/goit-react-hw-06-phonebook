@@ -1,23 +1,28 @@
 import { useSelector } from 'react-redux';
-import { getStoreContacts } from '../../redux/selectors';
+import { Contact } from '../ContactItem/ContactItem';
+import { contacts } from '../../redux/selectors';
 import { getStoreFilter } from '../../redux/selectors';
-import { Contact } from '../Contact/Contact';
+import { StyledList } from './StyledList';
 
-import css from './ContactList.module.css';
-export const ContactsList = data => {
-  // console.log(data);
-  const contactsList = useSelector(getStoreContacts);
+export const ContactsList = ({ toggleModal, activateChangeForm }) => {
+  const contactsList = useSelector(contacts);
+  // console.log('contactsList : ', contactsList);
   const filter = useSelector(getStoreFilter);
-  // console.log(filter);
+  // console.log('filter: ', filter);
 
-  const filteredContacts = contactsList.filter(contact =>
+  const filteredContacts = contactsList?.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
   return (
-    <ul className={css.contactList}>
-      {filteredContacts.map(contactData => (
-        <Contact key={contactData.id} data={contactData} />
+    <StyledList>
+      {filteredContacts?.map(contactData => (
+        <Contact
+          activateChangeForm={activateChangeForm}
+          toggleModal={toggleModal}
+          key={contactData.id}
+          data={contactData}
+        />
       ))}
-    </ul>
+    </StyledList>
   );
 };

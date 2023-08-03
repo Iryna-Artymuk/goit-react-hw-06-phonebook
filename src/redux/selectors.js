@@ -1,13 +1,19 @@
-export const getStoreContacts = state => {
+export const contacts = state => {
   //   console.log(state);
-  return state.contacts;
+  return state.contacts.contacts;
 };
 
 export const getStoreFilter = state => {
-  // console.log(state.filter.searchValue);
-  return state.filter.searchValue;
+  // console.log('state: ', state);
+
+  return state.filter.filter;
 };
 
-export const getModalStatus = state => {
+export const getActiveContactId = state => {
+  // console.log('state: ', state);
+
+  return state.contacts.activeContactId;
+};
+export const modalStatus = state => {
   return state.modalActive;
 };
