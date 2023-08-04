@@ -17,7 +17,7 @@ import { IconButton } from '../Button/StyledButton';
 export const Contact = ({ data, toggleModal, activateChangeForm }) => {
   const dispatch = useDispatch();
   const handelDelete = () => {
-    dispatch(deleteContact());
+    dispatch(deleteContact(data.id));
   };
   const addActiveIdtoStore = () => {
     // console.log(data.id);
@@ -34,10 +34,7 @@ export const Contact = ({ data, toggleModal, activateChangeForm }) => {
           </Wrapper>
           <Options>
             <a href={`tel:${data.phone_number}`}>
-              <IconButton
-                type="button"
-                onClick={() => addActiveIdtoStore(data.id)}
-              >
+              <IconButton type="button" onClick={addActiveIdtoStore}>
                 <BsFillTelephoneFill size={24} />
               </IconButton>
             </a>
